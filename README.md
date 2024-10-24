@@ -94,7 +94,8 @@ Firefox 本身並不內建語音合成系統，而是依賴操作系統提供的
             if (japaneseVoice) {
                 utterance.voice = japaneseVoice;
             }
-
+            // 解決 Chrome 會卡住的問題
+            window.speechSynthesis.cancel();
             window.speechSynthesis.speak(utterance);
         };
 
